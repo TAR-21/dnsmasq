@@ -19,3 +19,21 @@ expand-hosts
 domain=risu.world
 
 [root@dlp ~]# systemctl enable --now dnsmasq
+
+vi /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+# 設定するエントリを追記
+10.0.0.30   dns01.risu.world
+
+[root@dlp ~]# systemctl restart dnsmasq
+
+次に、上位DNSの指定を書いたファイルを作成する。
+
+/etc/dnsmasq_resolv.conf
+nameserver 192.168.3.1
+
+
+
+
+
