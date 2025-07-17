@@ -1,0 +1,21 @@
+vi /etc/dnsmasq.conf
+# 19行目 : コメント解除
+# ドメイン名の無いクエリは上位サーバーに問い合わせない
+domain-needed
+
+# 21行目 : コメント解除
+# プライベート IP アドレスの逆引き要求は上位サーバーに問い合わせない
+bogus-priv
+
+# 53行目 : コメント解除
+# [resolv.conf] に記述のサーバーに上から順に問い合わせる
+strict-order
+
+# 161行目 : コメント解除
+# ホスト名に自動的にドメイン名を付加する
+expand-hosts
+
+# 171行目 : 自身のドメイン名を追記
+domain=risu.world
+
+[root@dlp ~]# systemctl enable --now dnsmasq
